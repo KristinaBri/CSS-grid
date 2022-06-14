@@ -1,0 +1,107 @@
+/* 1.Vienas variantas grid-template-area
+2.Kitas variantas grid-column */
+
+html, body {
+    color: rgb(47, 35, 35);
+    height: 100%;
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+    /* 18 ir 19 eilutes eina visada jeigu dirbam su betkokiu grid variantu */
+    column-gap: 7px;
+    row-gap: 7px;
+    grid-template-areas: 
+    "N N N N N N N N N A A A"
+    "C C C C C C C C C A A A"
+    "F F F F F F F F F A A A";
+}
+
+.navbar {
+    background-color: rgb(146, 132, 159);
+    grid-area: N;
+
+    /* grid-column: 1 / -3; */
+     /* 1/-1 is the same as e.g. 1/4 but it's a better way if we don't know exact number of columns that we'll have in the future. In other words -1 means that the .navbar end at the last column line. */
+    
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+}
+
+.menu li {
+    padding: 20px;
+
+}
+
+.content {
+    background-color: rgb(127, 255, 212);
+    grid-area: C;
+
+    /* grid-column: 1 / -3; */
+}
+
+.aside {
+    background-color: rgb(230, 201, 157);
+    grid-area: A;
+
+    /* grid-column: -3 / -1;
+    grid-row: 1 / 3; */
+}
+
+.footer {
+    background-color: rgba(78, 78, 88, 0.577);
+    grid-area: F;
+    align-items: center;
+    /* grid-column: 1 / -1; */
+   
+}
+
+
+
+
+.article {
+    margin: 0 20px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 50px auto;
+    column-gap: 20px;
+    row-gap: 20px;
+    grid-template-areas: 
+    "H H H H H H H H H H H H"
+    "P P P P P P P P P P P P";
+}
+
+h1 {
+    grid-area: H;
+}
+
+p {
+    grid-area: P;
+}
+
+
+
+
+/* .container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 75px;
+    grid-auto-flow: row arba dense;
+} */
